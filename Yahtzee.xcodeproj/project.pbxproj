@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF0B8B961C761F3000BB502C /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B8B951C761F3000BB502C /* Cup.swift */; };
 		DF917A2B1C7570E7002591D8 /* YahtzeeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF917A2A1C7570E7002591D8 /* YahtzeeBrain.swift */; };
 		DFBC7BA81C6CFE68003A5A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC7BA71C6CFE68003A5A4F /* AppDelegate.swift */; };
 		DFBC7BAA1C6CFE68003A5A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC7BA91C6CFE68003A5A4F /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF0B8B951C761F3000BB502C /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
 		DF917A2A1C7570E7002591D8 /* YahtzeeBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YahtzeeBrain.swift; sourceTree = SOURCE_ROOT; };
 		DFBC7BA41C6CFE68003A5A4F /* Yahtzee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yahtzee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC7BA71C6CFE68003A5A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				DF917A2A1C7570E7002591D8 /* YahtzeeBrain.swift */,
+				DF0B8B951C761F3000BB502C /* Cup.swift */,
 				DFBC7BA71C6CFE68003A5A4F /* AppDelegate.swift */,
 				DFBC7BA91C6CFE68003A5A4F /* ViewController.swift */,
 				DFBC7BAB1C6CFE68003A5A4F /* Main.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF0B8B961C761F3000BB502C /* Cup.swift in Sources */,
 				DFBC7BAA1C6CFE68003A5A4F /* ViewController.swift in Sources */,
 				DFBC7BA81C6CFE68003A5A4F /* AppDelegate.swift in Sources */,
 				DF917A2B1C7570E7002591D8 /* YahtzeeBrain.swift in Sources */,

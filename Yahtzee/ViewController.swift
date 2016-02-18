@@ -13,12 +13,15 @@ class ViewController: UIViewController {
     let backgroundColor = UIColor.greenColor()
     
     var brain = YahtzeeBrain()
+    var cup = Cup()
+
+
+    @IBOutlet weak var die1: UIButton!
+    @IBOutlet weak var die2: UIButton!
+    @IBOutlet weak var die3: UIButton!
+    @IBOutlet weak var die4: UIButton!
+    @IBOutlet weak var die5: UIButton!
     
-    @IBOutlet weak var die1: UILabel!
-    @IBOutlet weak var die3: UILabel!
-    @IBOutlet weak var die2: UILabel!
-    @IBOutlet weak var die4: UILabel!
-    @IBOutlet weak var die5: UILabel!
     @IBOutlet weak var remaining: UILabel!
     
     @IBOutlet weak var chance: UILabel!
@@ -37,24 +40,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var totalscore: UILabel!
     
-    var die1locked = false
-    var die2locked = false
-    var die3locked = false
-    var die4locked = false
-    var die5locked = false
-    
     var rollsremaining = 3
-    
     var rolled = false
     
     var finished = 0
     
     @IBAction func newgame() {
-        die1.text = "-"
-        die2.text = "-"
-        die3.text = "-"
-        die4.text = "-"
-        die5.text = "-"
+        resetDice()
+        
         totalscore.text = "0"
         chance.text = "-"
         ones.text = "-"
@@ -70,17 +63,7 @@ class ViewController: UIViewController {
         lgstr.text = "-"
         yahtzee.text = "-"
         
-        die1locked = false
-        die2locked = false
-        die3locked = false
-        die4locked = false
-        die5locked = false
-        
-        die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        cup.unlockDice()
         
         resetRolls()
         finished = 0
@@ -97,7 +80,7 @@ class ViewController: UIViewController {
         let key = ["⚀":1,"⚁":2,"⚂":3,"⚃":4,"⚄":5,"⚅":6]
 
         if rolled {
-            let (score,scored,f) = brain.score(category, chance: chance.text!, ones: ones.text!, twos: twos.text!, threes: threes.text!, fours: fours.text!, fives: fives.text!, sixes: sixes.text!, threekind: kind3.text!, fourkind: kind4.text!, fullhouse: fullhouse.text!, smstr: smstr.text!, lgstr: lgstr.text!, yahtzee: yahtzee.text!, die1: key[die1.text!]!, die2: key[die2.text!]!, die3: key[die3.text!]!, die4: key[die4.text!]!, die5: key[die5.text!]!)
+            let (score,scored,f) = brain.score(category, chance: chance.text!, ones: ones.text!, twos: twos.text!, threes: threes.text!, fours: fours.text!, fives: fives.text!, sixes: sixes.text!, threekind: kind3.text!, fourkind: kind4.text!, fullhouse: fullhouse.text!, smstr: smstr.text!, lgstr: lgstr.text!, yahtzee: yahtzee.text!, die1: key[die1.currentTitle!]!, die2: key[die2.currentTitle!]!, die3: key[die3.currentTitle!]!, die4: key[die4.currentTitle!]!, die5: key[die5.currentTitle!]!)
             
             finished = f
             
@@ -108,121 +91,68 @@ class ViewController: UIViewController {
         
             if scored {
                 resetRolls()
-                die1locked = false
-                die2locked = false
-                die3locked = false
-                die4locked = false
-                die5locked = false
+                cup.unlockDice()
                 rolled = false
-                die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die1.text = "-"
-                die2.text = "-"
-                die3.text = "-"
-                die4.text = "-"
-                die5.text = "-"
+                resetDice()
             }
         
             if finished == 13 {
-                die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die1.text = "D"
-                die2.text = "O"
-                die3.text = "N"
-                die4.text = "E"
-                die5.text = "!"
+                resetDice()
+                die1.setTitle("D",forState: .Normal)
+                die2.setTitle("O",forState: .Normal)
+                die3.setTitle("N",forState: .Normal)
+                die4.setTitle("E",forState: .Normal)
+                die5.setTitle("!",forState: .Normal)
+
                 rolled = false
                 remaining.text = "Final Score = \(Int(totalscore.text!)!)"
             }
         }
     }
 
-    @IBAction func lock1() {
+    @IBAction func lockDie(sender: UIButton) {
+        let t = sender.tag
+        
+        var die = die1
+        
+        switch t {
+        case 1:
+            die = die1
+        case 2:
+            die = die2
+        case 3:
+            die = die3
+        case 4:
+            die = die4
+        case 5:
+            die = die5
+        default: break
+        }
+        
         if finished < 13 {
-            if die1locked {
-                die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die1locked = false
+            if cup.isLocked(t) {
+                die.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+                
             } else {
-                die1.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
-                die1locked = true
+                die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
             }
+            cup.toggleLock(t)
         }
     }
     
-    @IBAction func lock2() {
-        if finished < 13 {
-            if die2locked {
-                die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die2locked = false
-            } else {
-                die2.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
-                die2locked = true
-            }
-        }
-    }
-    
-    @IBAction func lock3() {
-        if finished < 13 {
-            if die3locked {
-                die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die3locked = false
-            } else {
-                die3.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
-                die3locked = true
-            }
-        }
-    }
-    
-    @IBAction func lock4() {
-        if finished < 13 {
-            if die4locked {
-                die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die4locked = false
-            } else {
-                die4.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
-                die4locked = true
-            }
-        }
-    }
-    
-    @IBAction func lock5() {
-        if finished < 13 {
-            if die5locked {
-                die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-                die5locked = false
-            } else {
-                die5.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
-                die5locked = true
-            }
-        }
-    }
-    
+
     @IBAction func roll() {
         let key = [1:"⚀",2:"⚁",3:"⚂",4:"⚃",5:"⚄",6:"⚅"]
         if finished < 13 {
             if rollsremaining >= 1 {
                 remaining.text = "Rolls Remaining: \(rollsremaining-1)"
-                if !die1locked {
-                    die1.text = key[Int(arc4random_uniform(6) + 1)]
-                }
-                if !die2locked {
-                    die2.text = key[Int(arc4random_uniform(6) + 1)]
-                }
-                if !die3locked {
-                    die3.text = key[Int(arc4random_uniform(6) + 1)]
-                }
-                if !die4locked {
-                    die4.text = key[Int(arc4random_uniform(6) + 1)]
-                }
-                if !die5locked {
-                    die5.text = key[Int(arc4random_uniform(6) + 1)]
-                }
+                let dievals = cup.rollDice()
+                die1.setTitle(key[dievals[0]],forState: .Normal)
+                die2.setTitle(key[dievals[1]],forState: .Normal)
+                die3.setTitle(key[dievals[2]],forState: .Normal)
+                die4.setTitle(key[dievals[3]],forState: .Normal)
+                die5.setTitle(key[dievals[4]],forState: .Normal)
+
             }
             rolled = true
             rollsremaining = rollsremaining - 1
@@ -232,6 +162,19 @@ class ViewController: UIViewController {
     func resetRolls() {
         rollsremaining = 3
         remaining.text = "Rolls Remaining: 3"
+    }
+    
+    func resetDice() {
+        die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die1.setTitle("-",forState: .Normal)
+        die2.setTitle("-",forState: .Normal)
+        die3.setTitle("-",forState: .Normal)
+        die4.setTitle("-",forState: .Normal)
+        die5.setTitle("-",forState: .Normal)
     }
 
 }
