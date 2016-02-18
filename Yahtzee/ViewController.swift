@@ -56,6 +56,7 @@ class ViewController: UIViewController {
     
     @IBAction func newgame() {
         resetDice()
+        cup.unlockDice()
         
         totalscore.text = "0"
         chance.text = "-"
@@ -72,13 +73,10 @@ class ViewController: UIViewController {
         lgstr.text = "-"
         yahtzee.text = "-"
         
-        cup.unlockDice()
-        
         resetRolls()
         finished = 0
         
         brain = YahtzeeBrain()
-        
     }
     
     @IBAction func score(sender: UIButton) {
@@ -118,8 +116,6 @@ class ViewController: UIViewController {
                 let finalscore = Int(totalscore.text!)!
                 remaining.text = "Final Score = \(finalscore)"
                 
-                
-                
                 let highscoreDefault = NSUserDefaults.standardUserDefaults()
                 
                 if let ohs = highscoreDefault.valueForKey("highscore"){
@@ -142,7 +138,6 @@ class ViewController: UIViewController {
 
     @IBAction func lockDie(sender: UIButton) {
         let t = sender.tag
-        
         var die = die1
         
         switch t {
@@ -161,7 +156,7 @@ class ViewController: UIViewController {
         
         if finished < 13 {
             if cup.isLocked(t) {
-                die.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+                die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
                 
             } else {
                 die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
@@ -182,7 +177,6 @@ class ViewController: UIViewController {
                 die3.setTitle(key[dievals[2]],forState: .Normal)
                 die4.setTitle(key[dievals[3]],forState: .Normal)
                 die5.setTitle(key[dievals[4]],forState: .Normal)
-
             }
             rolled = true
             rollsremaining = rollsremaining - 1
@@ -195,11 +189,11 @@ class ViewController: UIViewController {
     }
     
     func resetDice() {
-        die1.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die2.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die3.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die4.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
-        die5.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0)
+        die1.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+        die2.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+        die3.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+        die4.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+        die5.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
         die1.setTitle("-",forState: .Normal)
         die2.setTitle("-",forState: .Normal)
         die3.setTitle("-",forState: .Normal)

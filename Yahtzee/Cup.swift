@@ -12,7 +12,6 @@ import Foundation
 class Cup {
     
     class Die {
-        
         var locked: Bool
         var value: Int
         
@@ -60,7 +59,6 @@ class Cup {
             d.roll()
             vals.append(d.value)
         }
-
         return vals
     }
     
@@ -68,14 +66,6 @@ class Cup {
         for d in dice {
             d.unlock()
         }
-    }
-    
-    func lockDie(die: Int) {
-        dice[die-1].lock()
-    }
-    
-    func unlockDie(die: Int) {
-        dice[die-1].unlock()
     }
     
     func toggleLock(die: Int) {
