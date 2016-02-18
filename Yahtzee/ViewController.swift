@@ -85,6 +85,8 @@ class ViewController: UIViewController {
         resetRolls()
         finished = 0
         
+        brain = YahtzeeBrain()
+        
     }
     
     @IBAction func score(sender: UIButton) {

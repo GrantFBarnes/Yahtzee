@@ -8,11 +8,9 @@
 
 import Foundation
 
-
 class YahtzeeBrain {
     
     var finished: Int
-    
     
     init () {
         finished = 0
@@ -250,5 +248,4 @@ class YahtzeeBrain {
         }
         return false
     }
-    
 }
