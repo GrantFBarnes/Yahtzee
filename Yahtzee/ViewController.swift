@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var brain = YahtzeeBrain()
     var cup = Cup()
 
-
     @IBOutlet weak var die1: UIButton!
     @IBOutlet weak var die2: UIButton!
     @IBOutlet weak var die3: UIButton!
@@ -38,12 +37,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var lgstr: UILabel!
     @IBOutlet weak var yahtzee: UILabel!
     
+    @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var totalscore: UILabel!
     
     var rollsremaining = 3
     var rolled = false
     
     var finished = 0
+    var highscore = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let highscoreDefault = NSUserDefaults.standardUserDefaults()
+        if let highscore = (highscoreDefault.valueForKey("highscore")) {
+            highscoreLabel.text = "Highscore: \(highscore)"
+        }
+    }
     
     @IBAction func newgame() {
         resetDice()
@@ -105,7 +114,28 @@ class ViewController: UIViewController {
                 die5.setTitle("!",forState: .Normal)
 
                 rolled = false
-                remaining.text = "Final Score = \(Int(totalscore.text!)!)"
+                
+                let finalscore = Int(totalscore.text!)!
+                remaining.text = "Final Score = \(finalscore)"
+                
+                
+                
+                let highscoreDefault = NSUserDefaults.standardUserDefaults()
+                
+                if let ohs = highscoreDefault.valueForKey("highscore"){
+                    let oldhighscore = (ohs as! Int)
+                    if finalscore > oldhighscore {
+                        highscoreDefault.setValue(finalscore, forKey: "highscore")
+                        highscoreDefault.synchronize()
+                        highscoreLabel.text = "High Score: \(finalscore)"
+                        remaining.text = "NEW HIGH SCORE!!"
+                    }
+                } else {
+                    highscoreDefault.setValue(finalscore, forKey: "highscore")
+                    highscoreDefault.synchronize()
+                    highscoreLabel.text = "High Score: \(finalscore)"
+                    remaining.text = "NEW HIGH SCORE!!"
+                }
             }
         }
     }
