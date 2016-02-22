@@ -23,22 +23,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var remaining: UILabel!
     
-    @IBOutlet weak var chance: UILabel!
-    @IBOutlet weak var ones: UILabel!
-    @IBOutlet weak var twos: UILabel!
-    @IBOutlet weak var threes: UILabel!
-    @IBOutlet weak var fours: UILabel!
-    @IBOutlet weak var fives: UILabel!
-    @IBOutlet weak var sixes: UILabel!
-    @IBOutlet weak var kind3: UILabel!
-    @IBOutlet weak var kind4: UILabel!
-    @IBOutlet weak var fullhouse: UILabel!
-    @IBOutlet weak var smstr: UILabel!
-    @IBOutlet weak var lgstr: UILabel!
-    @IBOutlet weak var yahtzee: UILabel!
+    @IBOutlet weak var chance: UIButton!
+    @IBOutlet weak var ones: UIButton!
+    @IBOutlet weak var twos: UIButton!
+    @IBOutlet weak var threes: UIButton!
+    @IBOutlet weak var fours: UIButton!
+    @IBOutlet weak var fives: UIButton!
+    @IBOutlet weak var sixes: UIButton!
+    @IBOutlet weak var kind3: UIButton!
+    @IBOutlet weak var kind4: UIButton!
+    @IBOutlet weak var fullhouse: UIButton!
+    @IBOutlet weak var smstr: UIButton!
+    @IBOutlet weak var lgstr: UIButton!
+    @IBOutlet weak var yahtzee: UIButton!
     
     @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var totalscore: UILabel!
+
     
     var rollsremaining = 3
     var rolled = false
@@ -58,20 +59,9 @@ class ViewController: UIViewController {
         resetDice()
         cup.unlockDice()
         
-        totalscore.text = "0"
-        chance.text = "-"
-        ones.text = "-"
-        twos.text = "-"
-        threes.text = "-"
-        fours.text = "-"
-        fives.text = "-"
-        sixes.text = "-"
-        kind3.text = "-"
-        kind4.text = "-"
-        fullhouse.text = "-"
-        smstr.text = "-"
-        lgstr.text = "-"
-        yahtzee.text = "-"
+        totalscore.text = "Total Score: 0"
+        
+        resetScores()
         
         resetRolls()
         finished = 0
@@ -80,20 +70,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func score(sender: UIButton) {
-        let category = sender.currentTitle!
+        var category = sender.currentTitle!
         
         let titles = ["Ones":ones, "Twos":twos, "Threes":threes,"Fours":fours,"Fives":fives,"Sixes":sixes,"Chance":chance,"3 of a Kind":kind3,"4 of a Kind":kind4,"Sm. Straight":smstr,"Lg. Straight":lgstr,"Full House":fullhouse,"Yahtzee":yahtzee]
         
         let key = ["⚀":1,"⚁":2,"⚂":3,"⚃":4,"⚄":5,"⚅":6]
+        
+        if category.rangeOfString(":") != nil {
+            let temparray = category.componentsSeparatedByString(":")
+            category = temparray[0]
+        }
 
         if rolled {
-            let (score,scored,f) = brain.score(category, chance: chance.text!, ones: ones.text!, twos: twos.text!, threes: threes.text!, fours: fours.text!, fives: fives.text!, sixes: sixes.text!, threekind: kind3.text!, fourkind: kind4.text!, fullhouse: fullhouse.text!, smstr: smstr.text!, lgstr: lgstr.text!, yahtzee: yahtzee.text!, die1: key[die1.currentTitle!]!, die2: key[die2.currentTitle!]!, die3: key[die3.currentTitle!]!, die4: key[die4.currentTitle!]!, die5: key[die5.currentTitle!]!)
+            let (score,scored,f) = brain.score(category, chance: chance.currentTitle!, ones: ones.currentTitle!, twos: twos.currentTitle!, threes: threes.currentTitle!, fours: fours.currentTitle!, fives: fives.currentTitle!, sixes: sixes.currentTitle!, threekind: kind3.currentTitle!, fourkind: kind4.currentTitle!, fullhouse: fullhouse.currentTitle!, smstr: smstr.currentTitle!, lgstr: lgstr.currentTitle!, yahtzee: yahtzee.currentTitle!, die1: key[die1.currentTitle!]!, die2: key[die2.currentTitle!]!, die3: key[die3.currentTitle!]!, die4: key[die4.currentTitle!]!, die5: key[die5.currentTitle!]!)
             
             finished = f
             
-            if titles[category]!.text! == "-" {
-                titles[category]!.text = "\(score)"
-                totalscore.text = "\(Int(totalscore.text!)! + score)"
+            if titles[category]!.currentTitle!.rangeOfString(":") == nil {
+                titles[category]!.setTitle(titles[category]!.currentTitle! + ": \(score)",forState: .Normal)
+                titles[category]!.backgroundColor = UIColor.lightGrayColor()
+                let temparray = totalscore.text!.componentsSeparatedByString(":")
+                let old = temparray[1].stringByReplacingOccurrencesOfString(" ", withString: "")
+                totalscore.text = temparray[0] + ": \(Int(old)! + score)"
             }
         
             if scored {
@@ -113,7 +111,8 @@ class ViewController: UIViewController {
 
                 rolled = false
                 
-                let finalscore = Int(totalscore.text!)!
+                let temparray = totalscore.text!.componentsSeparatedByString(":")
+                let finalscore = Int(temparray[1].stringByReplacingOccurrencesOfString(" ", withString: ""))!
                 remaining.text = "Final Score = \(finalscore)"
                 
                 let highscoreDefault = NSUserDefaults.standardUserDefaults()
@@ -199,6 +198,38 @@ class ViewController: UIViewController {
         die3.setTitle("-",forState: .Normal)
         die4.setTitle("-",forState: .Normal)
         die5.setTitle("-",forState: .Normal)
+    }
+    
+    func resetScores() {
+        
+        chance.setTitle("Chance",forState: .Normal)
+        ones.setTitle("Ones",forState: .Normal)
+        twos.setTitle("Twos",forState: .Normal)
+        threes.setTitle("Threes",forState: .Normal)
+        fours.setTitle("Fours",forState: .Normal)
+        fives.setTitle("Fives",forState: .Normal)
+        sixes.setTitle("Sixes",forState: .Normal)
+        kind3.setTitle("3 of a Kind",forState: .Normal)
+        kind4.setTitle("4 of a Kind",forState: .Normal)
+        smstr.setTitle("Sm. Straight",forState: .Normal)
+        lgstr.setTitle("Lg. Straight",forState: .Normal)
+        fullhouse.setTitle("Full House",forState: .Normal)
+        yahtzee.setTitle("Yahtzee",forState: .Normal)
+        
+        chance.backgroundColor = UIColor.yellowColor()
+        ones.backgroundColor = UIColor.yellowColor()
+        twos.backgroundColor = UIColor.yellowColor()
+        threes.backgroundColor = UIColor.yellowColor()
+        fours.backgroundColor = UIColor.yellowColor()
+        fives.backgroundColor = UIColor.yellowColor()
+        sixes.backgroundColor = UIColor.yellowColor()
+        kind3.backgroundColor = UIColor.yellowColor()
+        kind4.backgroundColor = UIColor.yellowColor()
+        fullhouse.backgroundColor = UIColor.yellowColor()
+        smstr.backgroundColor = UIColor.yellowColor()
+        lgstr.backgroundColor = UIColor.yellowColor()
+        yahtzee.backgroundColor = UIColor.yellowColor()
+        
     }
 
 }

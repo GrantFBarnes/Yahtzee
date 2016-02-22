@@ -24,49 +24,49 @@ class YahtzeeBrain {
         
         switch category {
             case "Chance":
-                if chance == "-" {
+                if chance.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = die1 + die2 + die3 + die4 + die5
                 }
             case "Ones":
-                if ones == "-" {
+                if ones.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(1,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "Twos":
-                if twos == "-" {
+                if twos.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(2,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "Threes":
-                if threes == "-" {
+                if threes.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(3,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "Fours":
-                if fours == "-" {
+                if fours.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(4,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "Fives":
-                if fives == "-" {
+                if fives.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(5,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "Sixes":
-                if sixes == "-" {
+                if sixes.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     value = singles(6,die1: die1,die2: die2,die3: die3,die4: die4,die5: die5)
                 }
             case "3 of a Kind":
-                if threekind == "-" {
+                if threekind.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     var occured: [Int:Int] = [:]
@@ -92,7 +92,7 @@ class YahtzeeBrain {
                 }
                 
             case "4 of a Kind":
-                if fourkind == "-" {
+                if fourkind.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     var occured: [Int:Int] = [:]
@@ -118,7 +118,7 @@ class YahtzeeBrain {
                 }
                 
             case "Full House":
-                if fullhouse == "-" {
+                if fullhouse.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     var occured: [Int:Int] = [:]
@@ -150,7 +150,7 @@ class YahtzeeBrain {
                 }
                 
             case "Sm. Straight":
-                if smstr == "-" {
+                if smstr.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
 
@@ -171,7 +171,7 @@ class YahtzeeBrain {
                 }
             
             case "Lg. Straight":
-                if lgstr == "-" {
+                if lgstr.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     let sorted = vals.sort()
@@ -184,7 +184,7 @@ class YahtzeeBrain {
                 }
                 
             case "Yahtzee":
-                if yahtzee == "-" {
+                if yahtzee.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
                     var occured: [Int:Int] = [:]
