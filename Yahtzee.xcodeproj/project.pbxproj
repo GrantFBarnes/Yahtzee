@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF0B8B961C761F3000BB502C /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B8B951C761F3000BB502C /* Cup.swift */; };
 		DF917A2B1C7570E7002591D8 /* YahtzeeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF917A2A1C7570E7002591D8 /* YahtzeeBrain.swift */; };
+		DFB821601C7CA8B800F86F05 /* DieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB8215F1C7CA8B800F86F05 /* DieTest.swift */; };
 		DFBC7BA81C6CFE68003A5A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC7BA71C6CFE68003A5A4F /* AppDelegate.swift */; };
 		DFBC7BAA1C6CFE68003A5A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC7BA91C6CFE68003A5A4F /* ViewController.swift */; };
 		DFBC7BAD1C6CFE68003A5A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFBC7BAB1C6CFE68003A5A4F /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		DF0B8B951C761F3000BB502C /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
 		DF917A2A1C7570E7002591D8 /* YahtzeeBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YahtzeeBrain.swift; sourceTree = SOURCE_ROOT; };
+		DFB8215F1C7CA8B800F86F05 /* DieTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTest.swift; sourceTree = "<group>"; };
 		DFBC7BA41C6CFE68003A5A4F /* Yahtzee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yahtzee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC7BA71C6CFE68003A5A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFBC7BA91C6CFE68003A5A4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				DFBC7BBC1C6CFE68003A5A4F /* YahtzeeTests.swift */,
 				DFBC7BBE1C6CFE68003A5A4F /* Info.plist */,
+				DFB8215F1C7CA8B800F86F05 /* DieTest.swift */,
 			);
 			path = YahtzeeTests;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFB821601C7CA8B800F86F05 /* DieTest.swift in Sources */,
 				DFBC7BBD1C6CFE68003A5A4F /* YahtzeeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
