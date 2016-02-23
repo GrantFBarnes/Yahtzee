@@ -175,10 +175,12 @@ class ViewController: UIViewController {
             
             if finished < 13 {
                 if cup.isLocked(t) {
-                    die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+                    die.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+                    //die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
                     
                 } else {
-                    die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
+                    die.setTitleColor(UIColor.redColor(), forState: .Normal)
+                    //die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
                 }
                 cup.toggleLock(t)
             }
@@ -209,11 +211,16 @@ class ViewController: UIViewController {
     }
     
     func resetDice() {
-        die1.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
-        die2.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
-        die3.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
-        die4.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
-        die5.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+        die1.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        die2.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        die3.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        die4.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        die5.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+//        die1.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+//        die2.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+//        die3.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+//        die4.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+//        die5.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
         die1.setTitle("-",forState: .Normal)
         die2.setTitle("-",forState: .Normal)
         die3.setTitle("-",forState: .Normal)

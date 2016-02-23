@@ -417,7 +417,7 @@
 				INFOPLIST_FILE = Yahtzee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.Yahtzee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 			};
 			name = Debug;
 		};
@@ -428,7 +428,7 @@
 				INFOPLIST_FILE = Yahtzee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.Yahtzee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 			};
 			name = Release;
 		};
