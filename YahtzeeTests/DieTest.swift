@@ -75,6 +75,18 @@ class DieTest: XCTestCase {
         (score,_,_) = yb.score("3 of a Kind: 18", chance: "Chance", ones: "Ones", twos: "Twos", threes: "Threes", fours: "Fours", fives: "Fives", sixes: "Sixes", threekind: "3 of a Kind", fourkind: "4 of a Kind", fullhouse: "Full House", smstr: "Sm. Straight", lgstr: "Lg. Straight", yahtzee: "Yahtzee", die1: 2, die2: 4, die3: 5, die4: 2, die5: 2)
         
         XCTAssertEqual(score,0)
+        
+        (score,_,_) = yb.score("Fours: 16", chance: "Chance", ones: "Ones", twos: "Twos", threes: "Threes", fours: "Fours", fives: "Fives", sixes: "Sixes", threekind: "3 of a Kind", fourkind: "4 of a Kind", fullhouse: "Full House", smstr: "Sm. Straight", lgstr: "Lg. Straight", yahtzee: "Yahtzee", die1: 2, die2: 4, die3: 5, die4: 2, die5: 2)
+        
+        XCTAssertEqual(score,0)
+        
+        (score,_,_) = yb.score("Fours: 16", chance: "Chance", ones: "Ones", twos: "Twos", threes: "Threes", fours: "Fours", fives: "Fives", sixes: "Sixes", threekind: "3 of a Kind", fourkind: "4 of a Kind", fullhouse: "Full House", smstr: "Sm. Straight", lgstr: "Lg. Straight", yahtzee: "Yahtzee", die1: 2, die2: 4, die3: 4, die4: 4, die5: 4)
+        
+        XCTAssertEqual(score,0)
+        
+        (score,_,_) = yb.score("Fours", chance: "Chance", ones: "Ones", twos: "Twos", threes: "Threes", fours: "Fours", fives: "Fives", sixes: "Sixes", threekind: "3 of a Kind", fourkind: "4 of a Kind", fullhouse: "Full House", smstr: "Sm. Straight", lgstr: "Lg. Straight", yahtzee: "Yahtzee", die1: 2, die2: 4, die3: 4, die4: 4, die5: 4)
+        
+        XCTAssertEqual(score,16)
     
     }
     

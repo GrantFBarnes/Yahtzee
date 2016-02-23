@@ -103,6 +103,9 @@ class ViewController: UIViewController {
         
             if finished == 13 {
                 resetDice()
+                
+                let alert = UIAlertView()
+                
                 die1.setTitle("D",forState: .Normal)
                 die2.setTitle("O",forState: .Normal)
                 die3.setTitle("N",forState: .Normal)
@@ -120,12 +123,28 @@ class ViewController: UIViewController {
                 if let ohs = highscoreDefault.valueForKey("highscore"){
                     let oldhighscore = (ohs as! Int)
                     if finalscore > oldhighscore {
+                        
+                        alert.title = "Congratulations!"
+                        alert.message = "You have set a new highscore! Press 'New Game' to start a new game."
+                        alert.addButtonWithTitle("Okay")
+                        alert.show()
+                        
                         highscoreDefault.setValue(finalscore, forKey: "highscore")
                         highscoreDefault.synchronize()
                         highscoreLabel.text = "High Score: \(finalscore)"
                         remaining.text = "NEW HIGH SCORE!!"
+                    } else {
+                        alert.title = "Finished!"
+                        alert.message = "You have completed a game, press 'New Game' to start over."
+                        alert.addButtonWithTitle("Okay")
+                        alert.show()
                     }
                 } else {
+                    alert.title = "Congratulations!"
+                    alert.message = "You have set a new highscore! Press 'New Game' to start a new game."
+                    alert.addButtonWithTitle("Okay")
+                    alert.show()
+                    
                     highscoreDefault.setValue(finalscore, forKey: "highscore")
                     highscoreDefault.synchronize()
                     highscoreLabel.text = "High Score: \(finalscore)"
@@ -136,31 +155,33 @@ class ViewController: UIViewController {
     }
 
     @IBAction func lockDie(sender: UIButton) {
-        let t = sender.tag
-        var die = die1
-        
-        switch t {
-        case 1:
-            die = die1
-        case 2:
-            die = die2
-        case 3:
-            die = die3
-        case 4:
-            die = die4
-        case 5:
-            die = die5
-        default: break
-        }
-        
-        if finished < 13 {
-            if cup.isLocked(t) {
-                die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
-                
-            } else {
-                die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
+        if sender.currentTitle != "-" {
+            let t = sender.tag
+            var die = die1
+            
+            switch t {
+            case 1:
+                die = die1
+            case 2:
+                die = die2
+            case 3:
+                die = die3
+            case 4:
+                die = die4
+            case 5:
+                die = die5
+            default: break
             }
-            cup.toggleLock(t)
+            
+            if finished < 13 {
+                if cup.isLocked(t) {
+                    die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0)
+                    
+                } else {
+                    die.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.8)
+                }
+                cup.toggleLock(t)
+            }
         }
     }
     
