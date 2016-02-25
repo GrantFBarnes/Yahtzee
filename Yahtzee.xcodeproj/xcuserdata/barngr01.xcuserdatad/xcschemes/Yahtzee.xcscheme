@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DFBC7BA31C6CFE68003A5A4F"
-               BuildableName = "Yahtzee.app"
+               BuildableName = "DiceGame.app"
                BlueprintName = "Yahtzee"
                ReferencedContainer = "container:Yahtzee.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DFBC7BB71C6CFE68003A5A4F"
-               BuildableName = "YahtzeeTests.xctest"
+               BuildableName = "Yahtzee.xctest"
                BlueprintName = "YahtzeeTests"
                ReferencedContainer = "container:Yahtzee.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DFBC7BC21C6CFE68003A5A4F"
-               BuildableName = "YahtzeeUITests.xctest"
+               BuildableName = "Yahtzee.xctest"
                BlueprintName = "YahtzeeUITests"
                ReferencedContainer = "container:Yahtzee.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DFBC7BA31C6CFE68003A5A4F"
-            BuildableName = "Yahtzee.app"
+            BuildableName = "DiceGame.app"
             BlueprintName = "Yahtzee"
             ReferencedContainer = "container:Yahtzee.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DFBC7BA31C6CFE68003A5A4F"
-            BuildableName = "Yahtzee.app"
+            BuildableName = "DiceGame.app"
             BlueprintName = "Yahtzee"
             ReferencedContainer = "container:Yahtzee.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DFBC7BA31C6CFE68003A5A4F"
-            BuildableName = "Yahtzee.app"
+            BuildableName = "DiceGame.app"
             BlueprintName = "Yahtzee"
             ReferencedContainer = "container:Yahtzee.xcodeproj">
          </BuildableReference>

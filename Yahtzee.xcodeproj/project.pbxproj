@@ -47,10 +47,10 @@
 		DFBC7BAE1C6CFE68003A5A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFBC7BB11C6CFE68003A5A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFBC7BB31C6CFE68003A5A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFBC7BB81C6CFE68003A5A4F /* YahtzeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YahtzeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFBC7BB81C6CFE68003A5A4F /* Yahtzee.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Yahtzee.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC7BBC1C6CFE68003A5A4F /* YahtzeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahtzeeTests.swift; sourceTree = "<group>"; };
 		DFBC7BBE1C6CFE68003A5A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFBC7BC31C6CFE68003A5A4F /* YahtzeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YahtzeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFBC7BC31C6CFE68003A5A4F /* Yahtzee.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Yahtzee.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC7BC71C6CFE68003A5A4F /* YahtzeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahtzeeUITests.swift; sourceTree = "<group>"; };
 		DFBC7BC91C6CFE68003A5A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				DFBC7BA41C6CFE68003A5A4F /* Yahtzee.app */,
-				DFBC7BB81C6CFE68003A5A4F /* YahtzeeTests.xctest */,
-				DFBC7BC31C6CFE68003A5A4F /* YahtzeeUITests.xctest */,
+				DFBC7BB81C6CFE68003A5A4F /* Yahtzee.xctest */,
+				DFBC7BC31C6CFE68003A5A4F /* Yahtzee.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			);
 			name = YahtzeeTests;
 			productName = YahtzeeTests;
-			productReference = DFBC7BB81C6CFE68003A5A4F /* YahtzeeTests.xctest */;
+			productReference = DFBC7BB81C6CFE68003A5A4F /* Yahtzee.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DFBC7BC21C6CFE68003A5A4F /* YahtzeeUITests */ = {
@@ -187,7 +187,7 @@
 			);
 			name = YahtzeeUITests;
 			productName = YahtzeeUITests;
-			productReference = DFBC7BC31C6CFE68003A5A4F /* YahtzeeUITests.xctest */;
+			productReference = DFBC7BC31C6CFE68003A5A4F /* Yahtzee.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -439,7 +439,7 @@
 				INFOPLIST_FILE = YahtzeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.YahtzeeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahtzee.app/Yahtzee";
 			};
 			name = Debug;
@@ -451,7 +451,7 @@
 				INFOPLIST_FILE = YahtzeeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.YahtzeeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahtzee.app/Yahtzee";
 			};
 			name = Release;
@@ -462,7 +462,7 @@
 				INFOPLIST_FILE = YahtzeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.YahtzeeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 				TEST_TARGET_NAME = Yahtzee;
 				USES_XCTRUNNER = YES;
 			};
@@ -474,7 +474,7 @@
 				INFOPLIST_FILE = YahtzeeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GrantBarnes.YahtzeeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yahtzee;
 				TEST_TARGET_NAME = Yahtzee;
 				USES_XCTRUNNER = YES;
 			};

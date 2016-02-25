@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Yahtzee.xcodeproj">
+      location = "self:/Users/Grant/Documents/2016_Spring/iOS/Yahtzee/Yahtzee.xcodeproj">
    </FileRef>
 </Workspace>
