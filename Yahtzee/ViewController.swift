@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     @IBAction func score(sender: UIButton) {
         var category = sender.currentTitle!
         
-        let titles = ["Ones":ones, "Twos":twos, "Threes":threes,"Fours":fours,"Fives":fives,"Sixes":sixes,"Chance":chance,"3 of a Kind":kind3,"4 of a Kind":kind4,"Sm. Straight":smstr,"Lg. Straight":lgstr,"Full House":fullhouse,"Yahtzee":yahtzee]
+        let titles = ["Ones":ones, "Twos":twos, "Threes":threes,"Fours":fours,"Fives":fives,"Sixes":sixes,"Chance":chance,"3 of a Kind":kind3,"4 of a Kind":kind4,"Sm. Straight":smstr,"Lg. Straight":lgstr,"Full House":fullhouse,"Yatzy":yahtzee]
         
         let key = ["⚀":1,"⚁":2,"⚂":3,"⚃":4,"⚄":5,"⚅":6]
         
@@ -242,7 +242,7 @@ class ViewController: UIViewController {
         smstr.setTitle("Sm. Straight",forState: .Normal)
         lgstr.setTitle("Lg. Straight",forState: .Normal)
         fullhouse.setTitle("Full House",forState: .Normal)
-        yahtzee.setTitle("Yahtzee",forState: .Normal)
+        yahtzee.setTitle("Yatzy",forState: .Normal)
         
         chance.backgroundColor = UIColor.yellowColor()
         ones.backgroundColor = UIColor.yellowColor()
