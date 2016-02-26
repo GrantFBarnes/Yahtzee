@@ -183,7 +183,7 @@ class YahtzeeBrain {
                     }
                 }
                 
-            case "Yatzy":
+            case "Jahtzee":
                 if yahtzee.rangeOfString(":") == nil {
                     scored = true
                     finished = finished + 1
