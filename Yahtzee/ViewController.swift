@@ -184,7 +184,6 @@ class ViewController: UIViewController {
         }
     }
     
-
     @IBAction func roll() {
         let key = [1:"⚀",2:"⚁",3:"⚂",4:"⚃",5:"⚄",6:"⚅"]
         if finished < 13 {
@@ -249,8 +248,5 @@ class ViewController: UIViewController {
         smstr.backgroundColor = UIColor.yellowColor()
         lgstr.backgroundColor = UIColor.yellowColor()
         yahtzee.backgroundColor = UIColor.yellowColor()
-        
     }
-
 }
-

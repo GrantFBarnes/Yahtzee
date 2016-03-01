@@ -249,5 +249,3 @@ class YahtzeeBrain {
         return false
     }
 }
-
-
